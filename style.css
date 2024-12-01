@@ -1,0 +1,162 @@
+:root {
+    --bg-color: #fff;
+    --text-color: #333;
+    --navbar-bg: #f8f9fa;
+    --jumbotron-bg: #f8f9fa;
+    --feature-icon-color: #337ab7;
+    --btn-default-bg: #fff;
+    --btn-default-color: #333;
+    --navbar-hover-bg: #e7e7e7;
+    --hr-color: #dee2e6;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #fff;
+    --navbar-bg: #2c2c2c;
+    --jumbotron-bg: #2c2c2c;
+    --feature-icon-color: #4a9eff;
+    --btn-default-bg: #2c2c2c;
+    --btn-default-color: #fff;
+    --navbar-hover-bg: #404040;
+    --hr-color: #404040;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url(assets/fonts/Manrope/Manrope-VariableFont_wght.ttf);
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.navbar-default {
+    background-color: var(--navbar-bg);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav>li>a {
+    color: var(--text-color);
+}
+
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    background-color: var(--navbar-hover-bg);
+    color: var(--text-color);
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+    background-color: var(--navbar-hover-bg);
+    color: var(--text-color);
+}
+
+.navbar-brand {
+    font-weight: 600;
+}
+
+.jumbotron {
+    background-color: var(--jumbotron-bg);
+    padding: 100px 0;
+    margin-bottom: 0;
+    color: var(--text-color);
+}
+
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: var(--feature-icon-color);
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+.download-section {
+    background-color: var(--jumbotron-bg);
+    padding: 60px 0;
+}
+
+.version-info {
+    margin: 20px 0;
+}
+
+.btn-default {
+    background-color: var(--btn-default-bg);
+    color: var(--btn-default-color);
+}
+
+#theme-toggle {
+    margin-left: 10px;
+}
+
+hr {
+    border-top-color: var(--hr-color);
+}
+
+.navbar-default .navbar-toggle {
+    border-color: var(--text-color);
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: var(--text-color);
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: var(--navbar-hover-bg);
+}
+
+.social-icon {
+    padding: 15px 10px !important;
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.navbar-default .navbar-nav>li>a.social-icon:hover {
+    background-color: transparent;
+    opacity: 0.8;
+}
+
+footer {
+    text-align: center;
+    padding: 8px;
+}
+
+h1 {
+    font-weight: 900;
+}
+
+h2 {
+    font-weight: 800;
+}
+
+h3 {
+    font-weight: 700;
+}
+
+h4 {
+    font-weight: 600;
+}
+
+h6 {
+    font-weight: 500;
+}
+
+a {
+    font-weight: 500 !important;
+}
