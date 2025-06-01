@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCPE 0.8 items id's | LegacyMinecraftPE</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .search-highlight {
+            background-color: yellow;
+            font-weight: bold;
+            color: black;
+        }
+
+        .search-navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+
+        .search-navigation a {
+            margin: 0 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">LegacyMinecraftPE</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="active"><a href="0.8ids.html">MCPE 0.8 item id's</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="mcpealphaversions.html">MCPE Alpha versions</a></li>
+                    <li>
+                        <a href="https://discord.gg/4fv4RrTav4" target="_blank" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/LegacyMinecraftPE" target="_blank" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                            </svg>
+                        </a>
+                    </li>
+                    <form id="searchForm" class="form-inline navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="searchInput" placeholder="Inpage search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron" style="background: -jumbotron-bg no-repeat center center; background-size: cover; position: relative; color: white;">
+        <div style="background: rgba(0, 0, 0, 0.5); position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;"></div>
+        <div class="container text-center" style="position: relative; z-index: 2; color: white;">
+            <h1>MCPE 0.8 items id's</h1>
+        </div>
+    </div>
+    
+    <div class="section-padding">
+        <div class="container">
+        <div class="search-navigation">
+            <a id="prevResult" class="disabled">&uarr; Previous</a>
+            <a id="nextResult" class="disabled">Next &darr;</a>
+        </div>
+
+            <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Item Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>tile.stone</td></tr>
+                <tr><td>2</td><td>tile.grass</td></tr>
+                <tr><td>3</td><td>tile.dirt</td></tr>
+                <tr><td>4</td><td>tile.stonebrick</td></tr>
+                <tr><td>5</td><td>tile.wood</td></tr>
+                <tr><td>6</td><td>tile.sapling</td></tr>
+                <tr><td>7</td><td>tile.bedrock</td></tr>
+                <tr><td>8</td><td>tile.water</td></tr>
+                <tr><td>9</td><td>tile.water</td></tr>
+                <tr><td>10</td><td>tile.lava</td></tr>
+                <tr><td>11</td><td>tile.lava</td></tr>
+                <tr><td>12</td><td>tile.sand</td></tr>
+                <tr><td>13</td><td>tile.gravel</td></tr>
+                <tr><td>14</td><td>tile.oreGold</td></tr>
+                <tr><td>15</td><td>tile.oreIron</td></tr>
+                <tr><td>16</td><td>tile.oreCoal</td></tr>
+                <tr><td>17</td><td>tile.log</td></tr>
+                <tr><td>18</td><td>tile.leaves</td></tr>
+                <tr><td>19</td><td>tile.sponge</td></tr>
+                <tr><td>20</td><td>tile.glass</td></tr>
+                <tr><td>21</td><td>tile.oreLapis</td></tr>
+                <tr><td>22</td><td>tile.blockLapis</td></tr>
+                <tr><td>24</td><td>tile.sandStone</td></tr>
+                <tr><td>26</td><td>tile.bed</td></tr>
+                <tr><td>27</td><td>tile.goldenRail</td></tr>
+                <tr><td>30</td><td>tile.web</td></tr>
+                <tr><td>31</td><td>tile.tallgrass.fern</td></tr>
+                <tr><td>32</td><td>tile.deadbush</td></tr>
+                <tr><td>35</td><td>tile.cloth.white</td></tr>
+                <tr><td>37</td><td>tile.flower</td></tr>
+                <tr><td>38</td><td>tile.rose</td></tr>
+                <tr><td>39</td><td>tile.mushroom</td></tr>
+                <tr><td>40</td><td>tile.mushroom</td></tr>
+                <tr><td>41</td><td>tile.blockGold</td></tr>
+                <tr><td>42</td><td>tile.blockIron</td></tr>
+                <tr><td>43</td><td>tile.stoneSlab</td></tr>
+                <tr><td>44</td><td>tile.stoneSlab.stone</td></tr>
+                <tr><td>45</td><td>tile.brick</td></tr>
+                <tr><td>46</td><td>tile.tnt</td></tr>
+                <tr><td>47</td><td>tile.bookshelf</td></tr>
+                <tr><td>48</td><td>tile.stoneMoss</td></tr>
+                <tr><td>49</td><td>tile.obsidian</td></tr>
+                <tr><td>50</td><td>tile.torch</td></tr>
+                <tr><td>51</td><td>tile.fire</td></tr>
+                <tr><td>53</td><td>tile.stairsWood</td></tr>
+                <tr><td>54</td><td>tile.chest</td></tr>
+                <tr><td>56</td><td>tile.oreDiamond</td></tr>
+                <tr><td>57</td><td>tile.blockDiamond</td></tr>
+                <tr><td>58</td><td>tile.workbench</td></tr>
+                <tr><td>59</td><td>tile.crops</td></tr>
+                <tr><td>60</td><td>tile.farmland</td></tr>
+                <tr><td>61</td><td>tile.furnace</td></tr>
+                <tr><td>62</td><td>tile.furnace</td></tr>
+                <tr><td>63</td><td>tile.sign</td></tr>
+                <tr><td>64</td><td>tile.doorWood</td></tr>
+                <tr><td>65</td><td>tile.ladder</td></tr>
+                <tr><td>66</td><td>tile.rail</td></tr>
+                <tr><td>67</td><td>tile.stairsStone</td></tr>
+                <tr><td>68</td><td>tile.sign</td></tr>
+                <tr><td>71</td><td>tile.doorIron</td></tr>
+                <tr><td>73</td><td>tile.oreRedstone</td></tr>
+                <tr><td>74</td><td>tile.oreRedstone</td></tr>
+                <tr><td>78</td><td>tile.snow</td></tr>
+                <tr><td>79</td><td>tile.ice</td></tr>
+                <tr><td>80</td><td>tile.snow</td></tr>
+                <tr><td>81</td><td>tile.cactus</td></tr>
+                <tr><td>82</td><td>tile.clay</td></tr>
+                <tr><td>83</td><td>tile.reeds</td></tr>
+                <tr><td>85</td><td>tile.fence</td></tr>
+                <tr><td>86</td><td>tile.pumpkin</td></tr>
+                <tr><td>87</td><td>tile.hellrock</td></tr>
+                <tr><td>89</td><td>tile.lightgem</td></tr>
+                <tr><td>91</td><td>tile.litpumpkin</td></tr>
+                <tr><td>92</td><td>tile.cake</td></tr>
+                <tr><td>96</td><td>tile.trapdoor</td></tr>
+                <tr><td>98</td><td>tile.stonebricksmooth</td></tr>
+                <tr><td>101</td><td>tile.fenceiro</td></tr>
+                <tr><td>102</td><td>tile.thinGlass</td></tr>
+                <tr><td>103</td><td>tile.melon</td></tr>
+                <tr><td>104</td><td>tile.pumpkinStem</td></tr>
+                <tr><td>105</td><td>tile.pumpkinStem</td></tr>
+                <tr><td>107</td><td>tile.fenceGate</td></tr>
+                <tr><td>108</td><td>tile.stairsBrick</td></tr>
+                <tr><td>109</td><td>tile.stairsStoneBrickSmooth</td></tr>
+                <tr><td>112</td><td>tile.netherBrick</td></tr>
+                <tr><td>114</td><td>tile.stairsNetherBrick</td></tr>
+                <tr><td>126</td><td>tile.cake</td></tr>
+                <tr><td>128</td><td>tile.stairsSandStone</td></tr>
+                <tr><td>134</td><td>tile.stairsWoodSpruce</td></tr>
+                <tr><td>135</td><td>tile.stairsWoodBirch</td></tr>
+                <tr><td>136</td><td>tile.stairsWoodJungle</td></tr>
+                <tr><td>139</td><td>tile.cobbleWall</td></tr>
+                <tr><td>141</td><td>tile.carrots</td></tr>
+                <tr><td>142</td><td>tile.potatoes</td></tr>
+                <tr><td>155</td><td>tile.quartzBlock</td></tr>
+                <tr><td>156</td><td>tile.stairsQuartz</td></tr>
+                <tr><td>157</td><td>tile.woodSlab</td></tr>
+                <tr><td>158</td><td>tile.woodSlab</td></tr>
+                <tr><td>170</td><td>tile.hayBlock</td></tr>
+                <tr><td>171</td><td>tile.woolCarpet</td></tr>
+                <tr><td>173</td><td>tile.blockCoal</td></tr>
+                <tr><td>244</td><td>tile.beetroot</td></tr>
+                <tr><td>245</td><td>tile.stonecutter</td></tr>
+                <tr><td>246</td><td>tile.glowingobsidian</td></tr>
+                <tr><td>247</td><td>tile.netherreactor</td></tr>
+                <tr><td>248</td><td>tile.info_update</td></tr>
+                <tr><td>249</td><td>tile.info_update</td></tr>
+                <tr><td>256</td><td>item.shovelIron</td></tr>
+                <tr><td>257</td><td>item.pickaxeIron</td></tr>
+                <tr><td>258</td><td>item.hatchetIron</td></tr>
+                <tr><td>259</td><td>item.flintAndSteel</td></tr>
+                <tr><td>260</td><td>item.apple</td></tr>
+                <tr><td>261</td><td>item.bow</td></tr>
+                <tr><td>262</td><td>item.arrow</td></tr>
+                <tr><td>263</td><td>item.coal</td></tr>
+                <tr><td>264</td><td>item.emerald</td></tr>
+                <tr><td>265</td><td>item.ingotIron</td></tr>
+                <tr><td>266</td><td>item.ingotGold</td></tr>
+                <tr><td>267</td><td>item.swordIron</td></tr>
+                <tr><td>268</td><td>item.swordWood</td></tr>
+                <tr><td>269</td><td>item.shovelWood</td></tr>
+                <tr><td>270</td><td>item.pickaxeWood</td></tr>
+                <tr><td>271</td><td>item.hatchetWood</td></tr>
+                <tr><td>272</td><td>item.swordStone</td></tr>
+                <tr><td>273</td><td>item.shovelStone</td></tr>
+                <tr><td>274</td><td>item.pickaxeStone</td></tr>
+                <tr><td>275</td><td>item.hatchetStone</td></tr>
+                <tr><td>276</td><td>item.swordDiamond</td></tr>
+                <tr><td>277</td><td>item.shovelDiamond</td></tr>
+                <tr><td>278</td><td>item.pickaxeDiamond</td></tr>
+                <tr><td>279</td><td>item.hatchetDiamond</td></tr>
+                <tr><td>280</td><td>item.stick</td></tr>
+                <tr><td>281</td><td>item.bowl</td></tr>
+                <tr><td>282</td><td>item.mushroomStew</td></tr>
+                <tr><td>283</td><td>item.swordGold</td></tr>
+                <tr><td>284</td><td>item.shovelGold</td></tr>
+                <tr><td>285</td><td>item.pickaxeGold</td></tr>
+                <tr><td>286</td><td>item.hatchetGold</td></tr>
+                <tr><td>287</td><td>item.string</td></tr>
+                <tr><td>288</td><td>item.feather</td></tr>
+                <tr><td>289</td><td>item.sulphur</td></tr>
+                <tr><td>290</td><td>item.hoeWood</td></tr>
+                <tr><td>291</td><td>item.hoeStone</td></tr>
+                <tr><td>292</td><td>item.hoeIron</td></tr>
+                <tr><td>293</td><td>item.hoeDiamond</td></tr>
+                <tr><td>294</td><td>item.hoeGold</td></tr>
+                <tr><td>295</td><td>item.seeds</td></tr>
+                <tr><td>296</td><td>item.wheat</td></tr>
+                <tr><td>297</td><td>item.bread</td></tr>
+                <tr><td>298</td><td>item.helmetCloth</td></tr>
+                <tr><td>299</td><td>item.chestplateCloth</td></tr>
+                <tr><td>300</td><td>item.leggingsCloth</td></tr>
+                <tr><td>301</td><td>item.bootsCloth</td></tr>
+                <tr><td>302</td><td>item.helmetChain</td></tr>
+                <tr><td>303</td><td>item.chestplateChain</td></tr>
+                <tr><td>304</td><td>item.leggingsChain</td></tr>
+                <tr><td>305</td><td>item.bootsChain</td></tr>
+                <tr><td>306</td><td>item.helmetIron</td></tr>
+                <tr><td>307</td><td>item.chestplateIron</td></tr>
+                <tr><td>308</td><td>item.leggingsIron</td></tr>
+                <tr><td>309</td><td>item.bootsIron</td></tr>
+                <tr><td>310</td><td>item.helmetDiamond</td></tr>
+                <tr><td>311</td><td>item.chestplateDiamond</td></tr>
+                <tr><td>312</td><td>item.leggingsDiamond</td></tr>
+                <tr><td>313</td><td>item.bootsDiamond</td></tr>
+                <tr><td>314</td><td>item.helmetGold</td></tr>
+                <tr><td>315</td><td>item.chestplateGold</td></tr>
+                <tr><td>316</td><td>item.leggingsGold</td></tr>
+                <tr><td>317</td><td>item.bootsGold</td></tr>
+                <tr><td>318</td><td>item.flint</td></tr>
+                <tr><td>319</td><td>item.porkchopRaw</td></tr>
+                <tr><td>320</td><td>item.porkchopCooked</td></tr>
+                <tr><td>321</td><td>item.painting</td></tr>
+                <tr><td>323</td><td>item.sign</td></tr>
+                <tr><td>324</td><td>item.doorWood</td></tr>
+                <tr><td>325</td><td>item.bucket</td></tr>
+                <tr><td>328</td><td>item.minecart</td></tr>
+                <tr><td>329</td><td>item.saddle</td></tr>
+                <tr><td>330</td><td>item.doorIron</td></tr>
+                <tr><td>331</td><td>item.redstone</td></tr>
+                <tr><td>332</td><td>item.snowball</td></tr>
+                <tr><td>334</td><td>item.leather</td></tr>
+                <tr><td>336</td><td>item.brick</td></tr>
+                <tr><td>337</td><td>item.clay</td></tr>
+                <tr><td>338</td><td>item.reeds</td></tr>
+                <tr><td>339</td><td>item.paper</td></tr>
+                <tr><td>340</td><td>item.book</td></tr>
+                <tr><td>341</td><td>item.slimeball</td></tr>
+                <tr><td>344</td><td>item.egg</td></tr>
+                <tr><td>345</td><td>item.compass</td></tr>
+                <tr><td>347</td><td>item.clock</td></tr>
+                <tr><td>348</td><td>item.yellowDust</td></tr>
+                <tr><td>351</td><td>item.dyePowder.black</td></tr>
+                <tr><td>352</td><td>item.bone</td></tr>
+                <tr><td>353</td><td>item.sugar</td></tr>
+                <tr><td>354</td><td>item.cake</td></tr>
+                <tr><td>355</td><td>item.bed</td></tr>
+                <tr><td>359</td><td>item.shears</td></tr>
+                <tr><td>360</td><td>item.melon</td></tr>
+                <tr><td>361</td><td>item.seedsPumpkin</td></tr>
+                <tr><td>362</td><td>item.seedsMelon</td></tr>
+                <tr><td>363</td><td>item.beefRaw</td></tr>
+                <tr><td>364</td><td>item.beefCooked</td></tr>
+                <tr><td>365</td><td>item.chickenRaw</td></tr>
+                <tr><td>366</td><td>item.chickenCooked</td></tr>
+                <tr><td>383</td><td>item.monsterPlacer</td></tr>
+                <tr><td>391</td><td>item.carrots</td></tr>
+                <tr><td>392</td><td>item.potatos</td></tr>
+                <tr><td>393</td><td>item.potatoBaked</td></tr>
+                <tr><td>400</td><td>item.pumpkinPie</td></tr>
+                <tr><td>405</td><td>item.netherbrickItem</td></tr>
+                <tr><td>406</td><td>item.netherquartz</td></tr>
+                <tr><td>456</td><td>item.camera</td></tr>
+                <tr><td>457</td><td>item.beetroot</td></tr>
+                <tr><td>458</td><td>item.seedsBeetroot</td></tr>
+                <tr><td>459</td><td>item.beetrootSoup</td></tr>
+            </tbody>
+        </table>
+        <p>List from <a href="https://gist.github.com/zhuowei/7938129" target="_blank">https://gist.github.com/zhuowei/7938129</a></p>
+        </div>
+    </div>
+
+    <footer style="padding: 20px 0; border-top: 1px solid var(--border-color); background: var(--navbar-bg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <h2">LegacyMinecraftPE <small style="color: grey;">2023-2025</small></h6>
+                    <p style="margin-bottom: 0; font-size: 12px;">Saving the history of Minecraft PE Alpha</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <button id="theme-toggle" class="btn btn-default">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function () {
+    $('#searchForm').submit(function (event) {
+        event.preventDefault();
+
+        var searchText = $('#searchInput').val().trim().toLowerCase();
+
+        if (searchText === '') {
+            clearSearch();
+            return;
+        }
+
+        clearSearch();
+
+        var textNodes = getTextNodesIn(document.body);
+        var searchResults = [];
+        textNodes.forEach(function (node) {
+            var nodeText = node.textContent.toLowerCase();
+            if (nodeText.includes(searchText)) {
+                $(node.parentNode).addClass('search-highlight');
+                searchResults.push(node.parentNode);
+            }
+        });
+
+        if (searchResults.length > 0) {
+            $('.search-navigation').show();
+            scrollToElement(searchResults[0]);
+            currentResultIndex = 0;
+
+            $('#prevResult').click(function () {
+                navigateResults('prev');
+            });
+            $('#nextResult').click(function () {
+                navigateResults('next');
+            });
+        } else {
+            $('.search-navigation').hide();
+        }
+    });
+
+    function getTextNodesIn(node) {
+        var textNodes = [];
+        if (node.nodeType == Node.TEXT_NODE) {
+            textNodes.push(node);
+        } else {
+            var children = node.childNodes;
+            for (var i = 0, len = children.length; i < len; ++i) {
+                textNodes.push.apply(textNodes, getTextNodesIn(children[i]));
+            }
+        }
+        return textNodes;
+    }
+
+    function scrollToElement(element) {
+        $('html, body').animate({
+            scrollTop: $(element).offset().top - 100
+        }, 500);
+    }
+
+    var currentResultIndex = 0;
+
+    function navigateResults(direction) {
+        var results = $('.search-highlight');
+        if (direction === 'next') {
+            currentResultIndex++;
+            if (currentResultIndex >= results.length) {
+                currentResultIndex = 0;
+            }
+        } else if (direction === 'prev') {
+            currentResultIndex--;
+            if (currentResultIndex < 0) {
+                currentResultIndex = results.length - 1;
+            }
+        }
+
+        scrollToElement(results[currentResultIndex]);
+    }
+
+    function clearSearch() {
+        $('.search-highlight').removeClass('search-highlight');
+        $('.search-navigation').hide();
+        currentResultIndex = 0;
+    }
+});
+</script>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+
+        function setTheme(themeName) {
+            document.documentElement.setAttribute('data-theme', themeName);
+            localStorage.setItem('theme', themeName);
+        }
+
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'dark') {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+    </script>
+</body>
+</html>
