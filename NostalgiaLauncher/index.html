@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NostalgiaLauncher | LegacyMinecraftPE</title>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .jumbotron {
+            position: relative;
+            color: white;
+            overflow: hidden;
+        }
+
+        .jumbotron::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .jumbotron > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .screenshot-gallery {
+            margin: 30px 0;
+            text-align: center;
+        }
+        .screenshot-container {
+            text-align: center;
+            margin-top: 20px;
+            display: block;
+        }
+
+        .screenshot-item {
+            display: inline-block;
+            max-width: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .wide-screenshot-item {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+
+        .wide-screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .screenshot-item {
+                flex: 0 0 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">LegacyMinecraftPE</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron" style="background: url('../assets/images/panorama_overlay.png') no-repeat center center; background-size: cover; position: relative; color: white;">
+        <div style="background: rgba(0, 0, 0, 0.5); position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;"></div>
+        <div class="container text-center" style="position: relative; z-index: 2; color: white;">
+            <h1>NostalgiaLauncher</h1>
+            <p>Minecraft PE Alpha versions launcher</p>
+        </div>
+    </div>
+    
+    <div class="section-padding">
+        <div class="container">
+            <h1>About</h1>
+            <p>NostalgiaLauncher is a launcher for old versions of Minecraft PE Alpha that allows you to quickly download, store, and switch between versions</p>
+            <br>
+
+            <ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px;">
+                <li role="presentation" class="active"><a href="#android" aria-controls="android" role="tab" data-toggle="tab">Android</a></li>
+                <li role="presentation"><a href="#windows" aria-controls="windows" role="tab" data-toggle="tab">Windows</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="android">
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <h2>NostalgiaLauncher Android</h2>
+                            <p>A mobile launcher for downloading, installing, and easily storing versions of Minecraft PE Alpha</p>
+                            <a href="https://github.com/LegacyMinecraftPE/NostalgiaLauncher/releases/tag/1.0.3b1" class="btn btn-success btn-lg">Download for Android</a>
+                        </div>
+                    </div>
+                    <h3>Screenshots</h3>
+                        <div class="screenshot-container">
+                            <div class="screenshot-item wide-screenshot-item" onclick="window.open('https://raw.githubusercontent.com/MCPEAlpha/mcpealpha.github.io/refs/heads/main/data/Screenshot_2025-02-01-13-50-27-214_net.png', '_blank')">
+                                <img src="https://raw.githubusercontent.com/MCPEAlpha/mcpealpha.github.io/refs/heads/main/data/Screenshot_2025-02-01-13-50-27-214_net.png" alt="NostalgiaLauncher Android Screenshot">
+                            </div>
+                            <div class="screenshot-item wide-screenshot-item" onclick="window.open('https://raw.githubusercontent.com/MCPEAlpha/mcpealpha.github.io/refs/heads/main/data/Screenshot_2025-02-01-13-51-22-004_net.png', '_blank')">
+                                <img src="https://raw.githubusercontent.com/MCPEAlpha/mcpealpha.github.io/refs/heads/main/data/Screenshot_2025-02-01-13-51-22-004_net.png" alt="NostalgiaLauncher Android Screenshot">
+                            </div>
+                        </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="windows">
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <h2>NostalgiaLauncher Desktop</h2>
+                            <p>The desktop version of NostalgiaLauncher for Windows. Allows you to download, store, and quickly switch between versions.</p>
+                            <a href="https://github.com/LegacyMinecraftPE/NostalgiaLauncherDesktop/releases" class="btn btn-primary btn-lg">Download for Windows</a>
+                        </div>
+                        <div class="col-md-6 screenshot-gallery">
+                            <div class="screenshot-container">
+                                <div class="screenshot-item wide-screenshot-item" onclick="window.open('https://github.com/LegacyMinecraftPE/NostalgiaLauncherDesktop/raw/main/screenshot.png', '_blank')">
+                                    <img src="https://github.com/LegacyMinecraftPE/NostalgiaLauncherDesktop/raw/main/screenshot.png" alt="NostalgiaLauncher Desktop Screenshot">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding: 20px 0; border-top: 1px solid var(--border-color); background: var(--navbar-bg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <h2>LegacyMinecraftPE <small style="color: grey;">2023-2025</small></h2>
+                    <p style="margin-bottom: 0; font-size: 12px;">Saving the history of Minecraft PE Alpha</p>
+                    <p style="font-size: 10px; color: grey;">This website is not affiliated with Mojang, Microsoft, or any other entity</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <button id="theme-toggle" class="btn btn-default">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+
+        function setTheme(themeName) {
+            document.documentElement.setAttribute('data-theme', themeName);
+            localStorage.setItem('theme', themeName);
+        }
+
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'dark') {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        $(document).ready(function() {
+            if (location.hash) {
+                $('a[href="' + location.hash + '"]').tab('show');
+            }
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                location.hash = $(e.target).attr('href');
+            });
+        });
+    </script>
+</body>
+</html>

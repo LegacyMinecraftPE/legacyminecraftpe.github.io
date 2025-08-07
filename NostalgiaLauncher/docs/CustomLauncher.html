@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom executable for versions | NostalgiaLauncher | LegacyMinecraftPE</title>
+    <link rel="stylesheet" href="../../bootstrap.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .jumbotron {
+            position: relative;
+            color: white;
+            overflow: hidden;
+        }
+
+        .jumbotron::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .jumbotron > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .code-block {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--text-color);
+        }
+
+        h2, h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .container {
+            text-align: left;
+        }
+
+        .breadcrumb {
+            font-size: 13px;
+            max-width: 350px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">LegacyMinecraftPE</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron" style="background: url('../assets/images/panorama_overlay.png') no-repeat center center; background-size: cover; position: relative; color: white;">
+        <div style="background: rgba(0, 0, 0, 0.5); position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;"></div>
+        <div class="container text-center" style="position: relative; z-index: 2; color: white;">
+            <ol class="breadcrumb">
+                <li><a href="index.html">Docs</a></li>
+                <li class="active">Custom executable for versions</li>
+            </ol>
+            <h1>Custom executable for versions</h1>
+        </div>
+    </div>
+    
+    <div class="section-padding">
+        <div class="container">
+            <p>NostalgiaLauncher Desktop uses <a href="https://github.com/MCPI-Revival/Ninecraft" target="_blank">Ninecraft</a> to launch versions. When downloaded from the APK, the <code>res</code>, <code>assets</code>, and <code>lib</code> folders are extracted, which are required by Ninecraft to run. You can use your own version of Ninecraft or another executable if you have one.</p>
+            <br>
+            
+            <h2>How to use a custom executable</h2>
+            <p>To use a custom executable in NostalgiaLauncher, follow these steps:</p>
+            <ol>
+                <li>Go to the launcher settings</li>
+                <img src="../../assets/images/nld_change_versions_source_step1.png" width="600px" height="100%">
+                <li>Uncheck the "Use Default Launcher" box</li>
+                <img src="../../assets/images/nld_change_executable_step2.png" width="600px" height="100%">
+                <li>Select a executable's <code>exe</code></li>
+                <li>Click Save</li>
+            </ol>
+        </div>
+    </div>
+
+    <footer style="padding: 20px 0; border-top: 1px solid var(--border-color); background: var(--navbar-bg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <h2>LegacyMinecraftPE <small style="color: grey;">2023-2025</small></h2>
+                    <p style="margin-bottom: 0; font-size: 12px;">Saving the history of Minecraft PE Alpha</p>
+                    <p style="font-size: 10px; color: grey;">This website is not affiliated with Mojang, Microsoft, or any other entity</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <button id="theme-toggle" class="btn btn-default">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+
+        function setTheme(themeName) {
+            document.documentElement.setAttribute('data-theme', themeName);
+            localStorage.setItem('theme', themeName);
+        }
+
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'dark') {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+    </script>
+</body>
+</html>

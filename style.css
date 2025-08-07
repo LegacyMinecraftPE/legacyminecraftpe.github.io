@@ -160,3 +160,21 @@ h6 {
 a {
     font-weight: 500 !important;
 }
+
+p {
+    font-weight: 300 !important;
+}
+
+pre {
+    text-align: left;
+    background-color: #333;
+    color: rgb(177, 172, 172);
+}
+
+li {
+    text-align: left;
+}
+
+.breadcrumb {
+    background-color: #333;
+}
