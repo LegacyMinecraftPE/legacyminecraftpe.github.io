@@ -8,6 +8,7 @@
     --btn-default-color: #333;
     --navbar-hover-bg: #e7e7e7;
     --hr-color: #dee2e6;
+    --border-color: rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="dark"] {
@@ -20,6 +21,7 @@
     --btn-default-color: #fff;
     --navbar-hover-bg: #404040;
     --hr-color: #404040;
+    --border-color: #404040;
 }
 
 @font-face {
@@ -34,24 +36,34 @@ body {
     text-align: center;
     font-weight: 700;
     font-size: 20px;
+    padding-top: 50px;
 }
 
 .navbar-default {
     background-color: var(--navbar-bg);
-    border-color: rgba(0, 0, 0, 0.1);
+    border-color: var(--border-color);
+    min-height: 50px;
 }
 
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav>li>a {
     color: var(--text-color);
+    line-height: 20px;
 }
 
-.navbar-default .navbar-nav>li>a:hover,
-.navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
     background-color: var(--navbar-hover-bg);
     color: var(--text-color);
+}
+
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+    background-color: var(--navbar-hover-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 17px;
 }
 
 .navbar-default .navbar-nav>.active>a,
@@ -59,10 +71,25 @@ body {
 .navbar-default .navbar-nav>.active>a:focus {
     background-color: var(--navbar-hover-bg);
     color: var(--text-color);
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 17px;
+}
+
+.navbar-default .navbar-nav .open .dropdown-toggle,
+.navbar-default .navbar-nav .open .dropdown-toggle:hover,
+.navbar-default .navbar-nav .open .dropdown-toggle:focus {
+    background-color: var(--navbar-hover-bg);
+    color: var(--text-color);
+    padding-top: 15px;
+    padding-bottom: 17px;
 }
 
 .navbar-brand {
     font-weight: 600;
+    padding-top: 15px;
+    padding-bottom: 17px;
+    height: auto;
 }
 
 .jumbotron {
@@ -128,8 +155,10 @@ hr {
 }
 
 .navbar-default .navbar-nav>li>a.social-icon:hover {
-    background-color: transparent;
-    opacity: 0.8;
+    background-color: var(--navbar-hover-bg);
+    opacity: 1;
+    padding-top: 15px;
+    padding-bottom: 17px;
 }
 
 footer {
