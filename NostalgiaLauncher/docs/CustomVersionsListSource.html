@@ -29,13 +29,11 @@
 
         .code-block {
             background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 15px;
             border-radius: 8px;
             white-space: pre-wrap;
             word-wrap: break-word;
             font-family: 'Courier New', Courier, monospace;
-            color: var(--text-color);
+            color: var(--pre-text-color);
         }
 
         h2, h3 {
@@ -82,7 +80,7 @@
         <div class="container">
             <p>NostalgiaLauncher allows you to use a custom source for the list of Minecraft PE Alpha versions. It should be a JSON file that matches the structure shown below:</p>
             <div class="code-block">
-<pre>
+<pre style="border-left: 4px solid var(--navbar-hover-bg) !important; border-radius: 5px !important;">
 [
   {
     "name": "0.6.0",

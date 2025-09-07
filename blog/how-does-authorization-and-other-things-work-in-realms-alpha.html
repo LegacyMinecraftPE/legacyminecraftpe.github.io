@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How does authorization and other things work in Realms Alpha - LegacyMinecraftPE</title>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .jumbotron {
+            position: relative;
+            color: white;
+            overflow: hidden;
+        }
+
+        .jumbotron::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 1;
+        }
+
+        .jumbotron > * {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">LegacyMinecraftPE</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="active"><a href="../index.html#blog">Blog</a></li>
+
+                    <li>
+                        <a href="https://discord.gg/4fv4RrTav4" target="_blank" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/LegacyMinecraftPE" target="_blank" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron" style="background: url('../assets/images/mcpe_realms.png') no-repeat center center; background-size: cover; position: relative; color: white;">
+        <div style="background: rgba(0, 0, 0, 0.5); position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;"></div>
+        <div class="container text-center" style="position: relative; z-index: 2; color: white;">
+            <h1 style="font-size: 35px;">How does authorization and other things work in Realms Alpha</h1>
+            <p>This page describes the interaction algorithm between the Minecraft PE client and server-side components to implement the Realms Alpha functionality</p>
+        </div>
+    </div>
+
+    <ol class="breadcrumb" style="font-size: 14px;">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#blog">Blog</a></li>
+            <li class="active">How does authorization and other things work in Realms Alpha</li>
+        </ol>
+
+    <div class="container">
+
+        <div class="container" style="padding: 40px 0; max-width: 800px; text-align: left;">
+
+            <h2>Initial Setup</h2>
+            <p>To implement Realms Alpha functionality, you need:</p>
+            <ul>
+                <li>A web server/website to handle authorization</li>
+                <li>Access to the game's binary file for URL modification</li>
+                <li>Understanding of the API endpoints structure</li>
+            </ul>
+
+            <div class="lmc-alert">
+                <strong>Important:</strong> You need to replace the authorization URL string in the binary file. The new URL must be the same length as the original to avoid breaking the binary structure.
+            </div>
+
+            <hr>
+
+            <h2>1. Player Authorization Process</h2>
+            
+            <h3>Step 1: Login Trigger</h3>
+            <p>When a player clicks "Login" in the game settings, the authorization process begins.</p>
+
+            <h3>Step 2: Authorization Redirect</h3>
+            <p>After successful authentication, redirect the player to your server with the following URL format:</p>
+
+            <pre style="border-left: 4px solid var(--navbar-hover-bg) !important; border-radius: 5px !important;"><code>http://site/m/launchmc?accessToken=(PLAYER_TOKEN)&clientToken=(CLIENT_TOKEN)&sessionId=(SESSION_ID)&identity=(IDENTITY)&profileName=(PLAYER_NICKNAME)&profileUuid=(PLAYER_UUID)&email=(EMAIL)&newUser=(true_if_new_player_otherwise_false)</code></pre>
+
+            <h4>Parameters Explanation:</h4>
+            <ul>
+                <li><code>accessToken</code> - Player's access token</li>
+                <li><code>clientToken</code> - Client application token</li>
+                <li><code>sessionId</code> - Current session identifier</li>
+                <li><code>identity</code> - Player identity</li>
+                <li><code>profileName</code> - Player's nickname</li>
+                <li><code>profileUuid</code> - Player's unique identifier</li>
+                <li><code>email</code> - Player's email address</li>
+                <li><code>newUser</code> - Boolean indicating if this is a new player</li>
+            </ul>
+
+            <hr>
+
+            <h2>2. Realms Service Status</h2>
+
+            <h3>Endpoint: <code>GET /peo/info/status</code></h3>
+            <p>The game sends this request on every launch (and possibly after authorization) to check the availability of Realms service.</p>
+
+            <h4>Required Response (JSON):</h4>
+            <pre style="border-left: 4px solid var(--navbar-hover-bg) !important; border-radius: 5px !important;"><code>{
+    "buyServerEnabled": false,
+    "createServerEnabled": false, 
+    "serviceEnabled": true
+}</code></pre>
+
+            <h4>Parameter Details:</h4>
+            <ul>
+                <li><code>buyServerEnabled</code> - If true, players can purchase servers</li>
+                <li><code>createServerEnabled</code> - If true, players can create their own servers</li>
+                <li><code>serviceEnabled</code> - If true, the Realms button appears in the menu; if false, it doesn't</li>
+            </ul>
+
+            <hr>
+
+            <h2>3. Server List Request</h2>
+
+            <h3>Endpoint: <code>GET /peo/server/list</code></h3>
+            <p>When entering Realms, the game requests the list of available servers.</p>
+
+            <h4>Response Format:</h4>
+            <p>The response should be a JSON array of server objects with the following structure:</p>
+
+            <pre style="border-left: 4px solid var(--navbar-hover-bg) !important; border-radius: 5px !important;"><code>class ServerInfo {
+    [JsonProperty("id")]
+    public int ID { get; set; }
+
+    [JsonProperty("name")]
+    public string Name { get; set; }
+
+    [JsonProperty("open")]
+    public bool IsOpen { get; set; }
+
+    [JsonProperty("ownerName")]
+    public string OwnerName { get; set; }
+
+    [JsonProperty("myWorld")]
+    public bool IsMyRealms { get; set; }
+
+    [JsonProperty("maxNrPlayers")]
+    public int MaxPlayers { get; set; }
+
+    [JsonProperty("playerNames")]
+    public string[] PlayerList { get; set; }
+
+    [JsonProperty("type")]
+    public string RealmsType { get; set; }
+
+    [JsonProperty("serverId")]
+    public int ServerId { get; set; }
+
+    [JsonProperty("invited")]
+    public string[] InvitedPlayers { get; set; }
+}</code></pre>
+
+            <h4>Property Descriptions:</h4>
+            <ul>
+                <li><code>id</code> - Unique server identifier</li>
+                <li><code>name</code> - Display name of the server</li>
+                <li><code>open</code> - Whether the server is currently accessible</li>
+                <li><code>ownerName</code> - Name of the server owner</li>
+                <li><code>myWorld</code> - Whether this realm belongs to the current player</li>
+                <li><code>maxNrPlayers</code> - Maximum number of players allowed</li>
+                <li><code>playerNames</code> - Array of currently connected player names</li>
+                <li><code>type</code> - Server type (likely "public" for public servers)</li>
+                <li><code>serverId</code> - Server identifier</li>
+                <li><code>invited</code> - Array of invited player names</li>
+            </ul>
+
+            <hr>
+
+            <h2>4. Token Refresh</h2>
+
+            <h3>Endpoint: <code>POST /refresh</code></h3>
+            <p>The game sends this request on each game launch to refresh authentication tokens.</p>
+
+            <h4>Request Body (JSON):</h4>
+            <pre style="border-left: 4px solid var(--navbar-hover-bg) !important; border-radius: 5px !important;"><code>{
+    "accessToken": "token",
+    "clientToken": "client_token",
+    "selectedProfile": {
+        "name": "PlayerNickname"
+    }
+}</code></pre>
+
+            <hr>
+
+            <h2>5. Server Connection</h2>
+
+            <h3>Endpoint: <code>POST /peo/server/{server_index}/join</code></h3>
+            <p>When a player clicks to connect to a server, the game sends this request.</p>
+
+            <h4>URL Parameter:</h4>
+            <ul>
+                <li><code>server_index</code> - Index of the server in the previously returned server list array</li>
+            </ul>
+
+            <h4>Response Body (JSON):</h4>
+            <pre style="border-left: 4px solid var(--navbar-hover-bg) !important; border-radius: 5px !important;"><code>{
+    "ip": "127.0.0.1",
+    "port": 19132,
+    "serverId": "0"
+}</code></pre>
+
+            <h4>Response Parameters:</h4>
+            <ul>
+                <li><code>ip</code> - Server IP address to connect to</li>
+                <li><code>port</code> - Server port number</li>
+                <li><code>serverId</code> - Server identifier</li>
+            </ul>
+
+            <hr>
+
+            <h2>Attached Files</h2>
+            <a href="https://github.com/LegacyMinecraftPE/mcpestorage/raw/refs/heads/main/files/VBAmjnju.cs">VBAmjnju.cs</a>
+
+            <hr>
+
+            <h2>Implementation Notes</h2>
+
+            <div class="lmc-alert-warning">
+                <strong>Server Integration:</strong> If you want players to automatically access the server without additional registration, you can use the Realms data passed to your server. However, this requires either using a custom server core or modifying PocketMine-MP, as this functionality is not implemented by default.
+            </div>
+
+            <div class="lmc-alert-error">
+                <strong>Binary Modification Warning:</strong> Modifying the game binary requires careful attention to string lengths. The replacement authorization URL must be exactly the same length as the original to prevent corruption.
+            </div>
+
+            <hr>
+
+            <div>
+                <p>The information provided is based on content written by the user Flusitk (<a href="https://raw.githubusercontent.com/LegacyMinecraftPE/mcpestorage/refs/heads/main/files/%D0%9A%D0%90%D0%9A%20%D0%A0%D0%90%D0%91%D0%9E%D0%A2%D0%90%D0%95%D0%A2%20%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%97%D0%90%D0%A6%D0%98%D0%AF%20%D0%9F%D0%A0%D0%9E%D0%A7%D0%98%D0%95%20%D0%92%D0%95%D0%A9%D0%98%20%D0%92%20REALMS%20ALPHA.txt">see original file</a>). LegacyMinecraftPE assumes no responsibility for the material presented here or for the files made available.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding: 20px 0; border-top: 1px solid var(--border-color); background: var(--navbar-bg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <h2">LegacyMinecraftPE <small style="color: grey;">2023-2025</small></h6>
+                    <p style="margin-bottom: 0; font-size: 12px;">Saving the history of Minecraft PE Alpha</p>
+                    <p style="font-size: 10px; color: grey;">This website is not affiliated with Mojang, Microsoft, or any other entity</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <button id="theme-toggle" class="btn btn-default">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+
+        function setTheme(themeName) {
+            document.documentElement.setAttribute('data-theme', themeName);
+            localStorage.setItem('theme', themeName);
+        }
+
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'dark') {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+    </script>
+</body>
+
+</html>
