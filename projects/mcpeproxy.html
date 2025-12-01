@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCPEProxy | LegacyMinecraftPE</title>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <link rel="stylesheet" href="../lmc.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .jumbotron {
+            position: relative;
+            color: white;
+            overflow: hidden;
+        }
+
+        .jumbotron::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .jumbotron > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .screenshot-gallery {
+            margin: 30px 0;
+            text-align: center;
+        }
+        .screenshot-container {
+            text-align: center;
+            margin-top: 20px;
+            display: block;
+        }
+
+        .screenshot-item {
+            display: inline-block;
+            max-width: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .wide-screenshot-item {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+
+        .wide-screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .screenshot-item {
+                flex: 0 0 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">LegacyMinecraftPE</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron" style="background: url('../assets/images/panorama_overlay.png') no-repeat center center; background-size: cover; position: relative; color: white;">
+        <div style="background: rgba(0, 0, 0, 0.5); position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;"></div>
+        <div class="container text-center" style="position: relative; z-index: 2; color: white;">
+            <h1>MCPEProxy</h1>
+            <p>Proxy for Minecraft PE to connect to internet servers</p>
+        </div>
+    </div>
+    
+    <div class="section-padding" style="margin-top: 0px; padding-top: 0px;">
+        <div class="container">
+            <br><br>
+            <ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px;">
+                <li role="presentation" class="active"><a href="#android" aria-controls="android" role="tab" data-toggle="tab">Android</a></li>
+                <li role="presentation"><a href="#desktop" aria-controls="desktop" role="tab" data-toggle="tab">Windows & Linux</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="android">
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <h2>MCPEProxy Mobile</h2>
+                            <a href="https://github.com/LegacyMinecraftPE/MCPEProxy-Android/releases" class="btn btn-success btn-lg">Download for Android</a>
+                        </div>
+                    </div>
+                    <h3>Screenshot</h3>
+                        <div class="screenshot-container">
+                            <div class="screenshot-item wide-screenshot-item" onclick="window.open('https://private-user-images.githubusercontent.com/112166693/501919708-4d40e1d8-26b2-4dc3-8094-f266f340c166.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQ1ODQwNTYsIm5iZiI6MTc2NDU4Mzc1NiwicGF0aCI6Ii8xMTIxNjY2OTMvNTAxOTE5NzA4LTRkNDBlMWQ4LTI2YjItNGRjMy04MDk0LWYyNjZmMzQwYzE2Ni5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMjAxJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTIwMVQxMDA5MTZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00ZDk1ZDJiN2Y1YzMxZTI5Y2U5ZjlmNWUwYjRmYWZiN2Q2NDllNzg2MWJmNTQwMmU5N2ZiNzFhZjQ4NGUyY2Y4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.YpUSM2cFFWCvMlXTVW1JOZnJol3RMut7Ozh3WdV_crQ', '_blank')">
+                                <img src="https://private-user-images.githubusercontent.com/112166693/501919708-4d40e1d8-26b2-4dc3-8094-f266f340c166.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQ1ODQwNTYsIm5iZiI6MTc2NDU4Mzc1NiwicGF0aCI6Ii8xMTIxNjY2OTMvNTAxOTE5NzA4LTRkNDBlMWQ4LTI2YjItNGRjMy04MDk0LWYyNjZmMzQwYzE2Ni5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMjAxJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTIwMVQxMDA5MTZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00ZDk1ZDJiN2Y1YzMxZTI5Y2U5ZjlmNWUwYjRmYWZiN2Q2NDllNzg2MWJmNTQwMmU5N2ZiNzFhZjQ4NGUyY2Y4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.YpUSM2cFFWCvMlXTVW1JOZnJol3RMut7Ozh3WdV_crQ" alt="MCPEProxy Android Screenshot">
+                            </div>
+                        </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="desktop">
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <h2>MCPEProxy Desktop</h2>
+                            <a href="https://github.com/LegacyMinecraftPE/MCPEProxy-Desktop/releases" class="btn btn-primary btn-lg">Download for Windows & Linux</a>&#160;
+                        </div>
+                        <div class="col-md-6 screenshot-gallery">
+                            <div class="screenshot-container">
+                                <div class="screenshot-item wide-screenshot-item" onclick="window.open('https://github.com/LegacyMinecraftPE/MCPEProxy-Desktop/raw/main/screenshot.png', '_blank')">
+                                    <img src="https://github.com/LegacyMinecraftPE/MCPEProxy-Desktop/raw/main/screenshot.png" alt="MCPEProxy Desktop Screenshot">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding: 20px 0; border-top: 1px solid var(--border-color); background: var(--navbar-bg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <h2>LegacyMinecraftPE <small style="color: grey;">2023-2025</small></h2>
+                    <p style="margin-bottom: 0; font-size: 12px;">Saving the history of Minecraft PE Alpha</p>
+                    <p style="font-size: 10px; color: grey;">This website is not affiliated with Mojang, Microsoft, or any other entity</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <button id="theme-toggle" class="btn btn-default">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+
+        function setTheme(themeName) {
+            document.documentElement.setAttribute('data-theme', themeName);
+            localStorage.setItem('theme', themeName);
+        }
+
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'dark') {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        $(document).ready(function() {
+            if (location.hash) {
+                $('a[href="' + location.hash + '"]').tab('show');
+            }
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                location.hash = $(e.target).attr('href');
+            });
+        });
+    </script>
+</body>
+</html>
