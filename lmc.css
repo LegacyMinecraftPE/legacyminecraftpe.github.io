@@ -1,7 +1,7 @@
 /*
 
 LegacyMinecraftPE CSS
-Last edit: Mon Nov 24 2025
+Last edit: Sat Jan 31 2026
 
 */
 
@@ -174,6 +174,15 @@ body {
     padding-top: 15px;
     padding-bottom: 17px;
     height: auto;
+    background-color: #287abd;
+}
+
+.navbar-brand:hover {
+    background-color: #287abd !important;
+}
+
+.navbar-brand:focus {
+    background-color: #287abd;
 }
 
 .navbar-default .navbar-toggle {
