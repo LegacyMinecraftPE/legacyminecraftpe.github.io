@@ -124,3 +124,27 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+.btn-default:hover,
+.btn-default:focus {
+    background-color: var(--navbar-hover-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.card {
+    position: relative;
+    display: inline-block;
+}
+
+.card-external-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    color: var(--text-color);
+}
+
+.card:hover .card-external-icon {
+    opacity: 0.85;
+}
