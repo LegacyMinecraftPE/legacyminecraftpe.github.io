@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parsed plugins from PocketMine Forums | LegacyMinecraftPE</title>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <link rel="stylesheet" href="../lmc.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        #plugins-container {
+            margin-top: 20px;
+            background-color: transparent !important;
+            border: none;
+        }
+
+        .pagination-container {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .plugin-item {
+            padding: 8px 12px;
+            background-color: transparent !important;
+            border: none;
+            border-bottom: 1px solid var(--border-color, #eee);
+            text-align: left;
+            display: block;
+            color: #f8f9fa !important;
+        }
+
+        .plugin-item:hover {
+            background-color: rgba(255,255,255,0.08) !important;
+            color: #ffffff !important;
+        }
+
+        .loading-spinner {
+            text-align: left;
+            padding: 40px;
+            font-size: 16px;
+            color: #f8f9fa;
+        }
+
+        #plugins-section {
+            text-align: left;
+        }
+
+        .plugin-search-bar {
+            margin-bottom: 20px;
+            max-width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">LegacyMinecraftPE</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                    <li class="active"><a href="../explore.html">Explore</a></li>
+                    <li><a href="https://legacyminecraftpe.github.io/MCPEAlphaVersions">MCPE Alpha versions</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://discord.gg/4fv4RrTav4" target="_blank" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/LegacyMinecraftPE" target="_blank" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron" style="background: -jumbotron-bg no-repeat center center; background-size: cover; position: relative; color: white;">
+        <div style="background: rgba(0, 0, 0, 0.5); position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;"></div>
+        <div class="container text-center" style="position: relative; z-index: 2; color: white;">
+            <h1>Parsed plugins from PocketMine Forums</h1>
+        </div>
+    </div>
+    
+    <div class="section-padding">
+        <div class="container" style="text-align: left;">
+            
+            <div id="plugins-section">
+                <div class="form-group plugin-search-bar">
+                    <input type="text" class="form-control" id="pluginSearchInput" placeholder="Search plugins...">
+                </div>
+                
+                <div id="loading-indicator" class="loading-spinner">Loading...</div>
+                <div id="plugins-container" class="list-group"></div>
+                <div class="pagination-container">
+                    <ul id="pagination" class="pagination"></ul>
+                </div>
+                <br><br>
+                <p>From <a href="https://github.com/LegacyMinecraftPE/PocketMineForums-plugins" target="_blank">https://github.com/LegacyMinecraftPE/PocketMineForums-plugins</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding: 20px 0; border-top: 1px solid var(--border-color); background: var(--navbar-bg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <h2>LegacyMinecraftPE <small style="color: grey;">2023-2026</small></h2>
+                    <p style="margin-bottom: 0; font-size: 12px;">Saving the history of Minecraft PE Alpha</p>
+                    <p style="font-size: 10px; color: grey;">This website is not affiliated with Mojang, Microsoft, or any other entity</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <button id="theme-toggle" class="btn btn-default">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        var allPlugins = [];
+        var filteredPlugins = [];
+        var itemsPerPage = 50;
+        var currentPage = 1;
+
+        $.ajax({
+            url: 'https://api.github.com/repos/LegacyMinecraftPE/PocketMineForums-plugins/contents/plugins',
+            dataType: 'json',
+            success: function (data) {
+                allPlugins = data.filter(function(item) {
+                    return item.type === 'dir' || item.type === 'file';
+                });
+                filteredPlugins = allPlugins;
+
+                $('#loading-indicator').hide();
+                
+                if (filteredPlugins.length > 0) {
+                    renderPage(1);
+                    renderPagination();
+                } else {
+                    $('#plugins-container').html('<p class="text-left text-muted">Failed to load plugins.</p>');
+                }
+            },
+            error: function () {
+                $('#loading-indicator').text('Failed to load plugins.');
+            }
+        });
+
+        function renderPage(page) {
+            currentPage = page;
+            var startIndex = (page - 1) * itemsPerPage;
+            var endIndex = startIndex + itemsPerPage;
+            var pageItems = filteredPlugins.slice(startIndex, endIndex);
+
+            var html = '';
+            pageItems.forEach(function (plugin) {
+                html += '<a href="' + plugin.html_url + '" target="_blank" class="list-group-item plugin-item">' + 
+                        '<span class="glyphicon glyphicon-folder-open" style="margin-right: 8px;"></span>' + 
+                        plugin.name + 
+                        '</a>';
+            });
+
+            $('#plugins-container').html(html);
+        }
+
+        function renderPagination() {
+            var totalPages = Math.ceil(filteredPlugins.length / itemsPerPage);
+            if (totalPages <= 1) {
+                $('#pagination').html('');
+                return;
+            }
+
+            var html = '';
+            
+            html += '<li class="' + (currentPage === 1 ? 'disabled' : '') + '"><a href="#" data-page="' + (currentPage - 1) + '">&laquo;</a></li>';
+
+            for (var i = 1; i <= totalPages; i++) {
+                html += '<li class="' + (currentPage === i ? 'active' : '') + '"><a href="#" data-page="' + i + '">' + i + '</a></li>';
+            }
+
+            html += '<li class="' + (currentPage === totalPages ? 'disabled' : '') + '"><a href="#" data-page="' + (currentPage + 1) + '">&raquo;</a></li>';
+
+            $('#pagination').html(html);
+        }
+
+        $(document).on('click', '#pagination a', function (e) {
+            e.preventDefault();
+            var $parent = $(this).parent();
+            if ($parent.hasClass('disabled') || $parent.hasClass('active')) return;
+
+            var page = parseInt($(this).attr('data-page'));
+            renderPage(page);
+            renderPagination();
+            
+            $('html, body').animate({
+                scrollTop: $('#plugins-section').offset().top - 100
+            }, 300);
+        });
+
+        $('#pluginSearchInput').on('input', function () {
+            var searchText = $(this).val().trim().toLowerCase();
+
+            if (searchText === '') {
+                filteredPlugins = allPlugins;
+            } else {
+                filteredPlugins = allPlugins.filter(function(plugin) {
+                    return plugin.name.toLowerCase().includes(searchText);
+                });
+            }
+
+            currentPage = 1;
+            renderPage(1);
+            renderPagination();
+
+            if (filteredPlugins.length === 0) {
+                $('#plugins-container').html('<p class="text-left text-muted" style="color: #f8f9fa;">No plugins found.</p>');
+            }
+        });
+    });
+    </script>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+
+        function setTheme(themeName) {
+            document.documentElement.setAttribute('data-theme', themeName);
+            localStorage.setItem('theme', themeName);
+        }
+
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'dark') {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+    </script>
+</body>
+</html>
